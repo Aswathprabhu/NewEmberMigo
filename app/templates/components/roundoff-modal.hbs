@@ -1,0 +1,30 @@
+<a class="waves-effect waves-light btn modal-trigger" href="#modal3">Modal</a>
+
+  <div style="width:35%;max-height:70%!important" id="modal3" class="modal">
+    {{#if true}}
+    <div id="roundOffContainer" class="container">
+           <p class="f4 pb2">RoundOff</p>
+             <div>
+                  <p>It seems you have enabled Round-off in Zoho Books, but your previous transactions were missing round-off information.Please disable round-off temporarily to import your transactions. You can enable round-off after completing your Migration</p>
+
+              </div>
+              <div class="modal-footer">
+                  <a href="" id="roundOffDisable" class="modal-close waves-effect waves-green btn-flat">Disable</a>
+              </div>
+
+       </div>
+
+    {{else}}
+    <div id="roundOffContainer" class="container">
+           <p class="f4 pb2">RoundOff</p>
+             <div>
+                <p>It seems you have disabled round-off in Zoho Books, but your previous transactions has round-off information.Please enable round-off to import your transactions. </p>
+            </div>
+            <div class="modal-footer">
+                <a href="" id="roundOffEnable" class="modal-close waves-effect waves-green btn-flat">Enable</a>
+            </div>
+
+       </div>
+    {{/if}}
+  </div>
+{{yield}}

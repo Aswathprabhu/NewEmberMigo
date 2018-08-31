@@ -1,0 +1,153 @@
+<a class="waves-effect waves-light btn modal-trigger" href="#modal1">Modal</a>
+
+<!-- Modal Structure -->
+{{#if true}}
+  <div style="width:35%" id="modal1" class="modal">
+    <div style="padding-bottom:0px!important" class="modal-content">
+      <div id="gstinContainer" class="container">
+        <form id="gstForm">
+
+          <h4>GSTIN</h4>
+          <div class="pa4 pb0 pt0" id="enablegstin">
+            <p class="f4 pb2">GST Details</p>
+            <div class="input-field col s6">
+              <input id="gstin" type="text" class="validate">
+              <label for="gstin">GSTIN</label>
+            </div>
+
+            <label>Composition Scheme</label>
+            <div class="pa2">
+              <label>
+                               <input id="compScheme" type="checkbox" class="filled-in" />
+                               <span>My Business is registered for composition scheme</span>
+              </label>
+            </div>
+
+            <div id="radioGroup" class="hide">
+
+              <div class="pa2">
+                <label>
+                                   <input class="with-gap" value="1" name="percentage" type="radio" />
+                                   <span>1% (For Manufacturers and traders)</span>
+                </label>
+              </div>
+
+              <div class="pa2">
+                <label>
+                                   <input class="with-gap" value="2" name="percentage" type="radio" disabled />
+                                   <span>2% (For Manufacturers - GSTN has lowered the rate for manufacturers to 1%)</span>
+                </label>
+              </div>
+              <div class="pa2">
+                <label>
+                                   <input class="with-gap" value="5" name="percentage" type="radio" />
+                                   <span>5% (For Resturant sectors)</span>
+                </label>
+              </div>
+            </div>
+
+            <div id="reverseCharge">
+              <label>Reverse Charge</label>
+              <div class="ma2">
+                <label>
+                                   <input id="reverseChrg" type="checkbox" class="filled-in" />
+                                   <span>Enable reverse charge in sales transactions</span>
+                </label>
+              </div>
+            </div>
+
+            <div>
+              <label>Import/Export (Overseas Trading)</label>
+              <div class="pa2">
+                <label>
+                                   <input id="importExport" type="checkbox" class="filled-in" />
+                                   <span>My Business is involved in overseas trading</span>
+                </label>
+              </div>
+            </div>
+
+
+
+            <div id="customDuty" class="input-field col s12 hide">
+
+              <select>
+                               <option value="Choose your option" selected>Choose your option</option>
+                               <optgroup label="Expense">
+
+                                   <option value="Advertising And Marketing">Advertising And Marketing</option>
+                                   <option value="Automobile Expense">Automobile Expense</option>
+                                   <option value="Bad Debt">Bad Debt</option>
+                                   <option value="Bank Fees and Charges">Bank Fees and Charges</option>
+                                   <option value="Consultant Expense">Consultant Expense</option>
+                                   <option value="Credit Card Charges">Credit Card Charges</option>
+                                   <option value="Derpreciation Expense">Derpreciation Expense</option>
+                                   <option value="IT and Internet Expenses">IT and Internet Expenses</option>
+                                   <option value="Janitorial Expense">Janitorial Expense</option>
+                                   <option value="Lodging">Lodging</option>
+                                   <option value="Meals and Entertainment">Meals and Entertainment</option>
+                                   <option value="Office Supplies">Office Supplies</option>
+                                   <option value="Other Expenses">Other Expenses</option>
+                                   <option value="Postage">Postage</option>
+                                   <option value="Printing and Stationery">Printing and Stationery</option>
+                                   <option value="Rent Expense">Rent Expense</option>
+                                   <option value="Repairs and Maintenance">Repairs and Maintenance</option>
+                                   <option value="Salaries and Employee Wages">Salaries and Employee Wages</option>
+                                   <option value="Telephone Expense">Telephone Expense</option>
+                                   <option value="Travel Expense">Travel Expense</option>
+                                   <option value="Uncategorized">Uncategorized</option>
+                               </optgroup>
+                               <optgroup label="Cost of Goods Sold">
+                                   <option value="">Cost of Goods Sold</option>
+                               </optgroup>
+                               <optgroup label="Other Expenses">
+                                   <option value="">Exchange Gain or Loss</option>
+                               </optgroup>
+
+                           </select>
+              <label>Custom Duty Tracking Account</label>
+            </div>
+
+            <div class="pa2">
+              <label>
+                               GST Registered Date
+              </label>
+              <input id="gstdate" type="text" class="datepicker">
+            </div>
+
+
+          </div>
+
+        </form>
+      </div>
+
+
+
+    </div>
+    <div class="modal-footer">
+      <a id="gstSubmit" href="" class="modal-close waves-effect waves-green btn-flat">Submit</a>
+    </div>
+  </div>
+{{else}}
+  <div style="width:35%" id="modal1" class="modal">
+    <div style="padding-bottom:0px!important" class="modal-content">
+      <div id="gstinContainer" class="container">
+        <form id="gstForm">
+
+          <h4>GSTIN</h4>
+
+          <div id="disablegstin">
+            <p style="text-align:justify">It seems you have enabled GSTIN in Zoho Books, but your previous transactions were missing GST information.Please disable GST temporarily to import your transactions</p>
+            <div class="modal-footer">
+              <a id="disableGst" href="" class="modal-close waves-effect waves-green btn-flat">Disable</a>
+            </div>
+          </div>
+
+        </form>
+      </div>
+
+    </div>
+  </div>
+
+{{/if}}
+
+{{yield}}

@@ -1,0 +1,28 @@
+.inlinesvg{
+  height:20px;
+  width:20px;
+  margin-left:15px;
+
+}
+.textdecor{
+  height:30px;
+  width:30px;
+  margin-left:15px;
+
+  font-size: 20px;
+  color:#222b30;
+}
+.NotFoundSvg{
+  height:200px;
+  width:170px;
+  position:relative;
+  vertical-align:middle;
+  margin:5vh auto;
+  display: flex;
+  align-items: center;
+}
+
+.nextSvg{
+  height:30px;
+  width:30px;
+}

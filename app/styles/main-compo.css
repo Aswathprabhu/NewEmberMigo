@@ -1,0 +1,12 @@
+.successsvg{
+  height:70px;
+  width:70px;
+}
+.overflowTable{
+  height:30%;
+  width:30%;
+  overflow-y:auto;
+}
+.activate{
+  background-color: #d2d4d5!important;
+}

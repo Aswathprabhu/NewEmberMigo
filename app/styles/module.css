@@ -1,0 +1,33 @@
+.carousel .carousel-item{
+  width:100%;
+}
+.carousel{
+    height:56.62vh;
+}
+.scrollTable{
+     height:35vh;
+     overflow-y:auto;
+}
+.tabs .tab a{
+
+    color:#222b30!important;
+}
+
+.tab a:hover, .tabs .tab a:hover {
+    background-color:#d2d4d5;
+    color:white;
+}
+
+.tab a:focus, .tabs .tab a:focus.active {
+    background-color:#d2d4d5;
+    color:white;
+}
+
+.tabs a.active{
+    background-color:#d2d4d5;
+    color:white;
+}
+.tabs .indicator
+{
+   background-color:#222b30;
+}

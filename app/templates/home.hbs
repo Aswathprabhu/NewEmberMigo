@@ -1,0 +1,84 @@
+<div class="container">
+ <div class="animated fadeInUpBig">
+  <div class="form-wrapper">
+
+    <div>
+      <img class="logo" src="http://localhost:4200/zoho.png" alt="logo">
+    </div><br><br>
+
+    <form action="./FileUploadHandler" id="form" method="post" enctype="multipart/form-data" novalidate>
+
+      <div style="display:flex;" class="switch">
+        <label>
+              <span style="flex-wrap:wrap">Continue Recent Migration</span>
+       </label>
+              <span style="flex-wrap:wrap;margin-left:5%">{{x-toggle value=toggled theme='light' onToggle=(action (mut toggled))}}</span>
+      </div>
+
+      <div class="alert">
+
+      </div>
+
+      <div class="input-field col s6">
+        <div>
+          <label for="authToken">AuthToken</label>
+        </div>
+        {{input value=auth id="authToken" name="authToken" type="text" class="validate" focus-out="postAuth"}}
+        <span id="sampleAuth" class="helper-text" {{action "populateAuth"}}>Sample AuthToken</span>
+        <span class="hide" id="authValue">7bf3c98d66076db5bd888dbc2ec851aa</span>
+      </div>
+
+      <div class="input-field col s6">
+        <div>
+          <label class="left" for="orgId">Organization Id</label>
+
+          <img style="height:8%;width:8%;" class="right" src="http://localhost:4200/loading.gif" alt="loading">
+          <br><br>
+        </div>
+        <input type="hidden" name="orgId" value={{orgId}}/>
+        <div id="ember-basic-dropdown-wormhole" class="orgName">
+
+          {{#power-select options=orgList selected=org placeholder="Select your Organization" searchPlaceholder="Type to Search..." onclose=(action setorg) onchange=(action (mut org)) as |orgname| }}
+            {{orgname}}
+          {{/power-select}}
+        </div>
+      </div>
+
+      <div id="migratingFromSelect" class="input-field">
+        <div>
+          <label for="migratingFrom">Migrating From</label>
+        </div><br>
+        <div id="ember-basic-dropdown-wormhole">
+          {{#power-select options=migratingFrom selected=prevOrg placeholder="Migrating From" searchPlaceholder="Type to Search..." onclose=(action setprevOrg) onchange=(action (mut prevOrg)) as |prevOrgname| }}
+            {{prevOrgname}}
+          {{/power-select}}
+        </div>
+      </div>
+    {{#unless toggled}}
+      <div id="fileInput" class="file-field input-field">
+        <div>
+          <label for="file">File</label>
+        </div>
+        <div class="btn">
+          <span>File</span>
+          <input type="file" name="file" id="file" accept=".xml,.zip" required>
+        </div>
+        <div class="file-path-wrapper">
+          <input class="file-path validate" type="text">
+        </div>
+
+        <span class="helper-text">
+              <p><a href="https://docs.zoho.com/file/8eny9e980830425bd455b9218e994419b6d87" target="_blank" download>Sample File</a></p>
+        </span>
+      </div>
+     {{/unless}}
+
+      <button {{action "submit"}} id="submit-btn" class="btn waves-effect waves-light btn-center" type="submit">Submit</button>
+    </form>
+
+  </div>
+
+ </div>
+</div>
+
+{{outlet}}

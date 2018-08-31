@@ -1,0 +1,24 @@
+
+<div class="container">
+  {{#if totalChecker}}
+  <div style="float:left;min-height:30%;min-width:30%;" class='avenir tc grow bg-light-gray br3 pa3 ma2 dib bw2 shadow-5'>
+    <div>
+      <h5>{{name}}<span {{action 'nextModule'}} style="float:right;" class="hide">{{inline-svg "next" class="nextSvg"}}</span></h5>
+    </div>
+    {{loader-compo percent=completed index=currentModule completed=parsed total=total}}
+    <span>{{inline-svg "thumbsup" class="inlinesvg"}}</span><span style="margin-right:40px;" class="textdecor">{{success}}</span>
+    <span>{{inline-svg "thumbsdown" class="inlinesvg"}}</span><span class="textdecor">{{failure}}</span>
+  </div>
+   {{else}}
+   <div style="float:left;min-height:30%;min-width:30%;" class='avenir tc grow bg-light-gray br3 pa3 ma2 dib bw2 shadow-5'>
+     <div>
+       <h5>{{name}}</h5>
+     </div>
+     {{!-- <div><img src="http://localhost:4200/NotFound.png" class="NotFoundSvg"></div> --}}
+     <div class="NotFoundSvg">
+      <span class="f4 red-text">No Records Found!</span>
+    </div>
+     </div>
+    {{/if}}
+</div>
+{{yield}}

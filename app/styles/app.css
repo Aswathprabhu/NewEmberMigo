@@ -1,0 +1,15 @@
+@import "home.css";
+@import "loader-compo.css";
+@import "nav-bar.css";
+@import "module.css";
+@import "migrations.css";
+@import "card-compo.css";
+@import "main-compo.css";
+@import "inventory-modal.css";
+*{
+    box-sizing: border-box;
+
+}
+i.fa.fa-times::before{
+    content:"Close";
+}

@@ -1,0 +1,35 @@
+
+
+ <!-- Modal Structure -->
+
+{{#unless parseCompleted}}
+{{gst-modal}}
+ <div id="loader">
+	<div id="d1"></div>
+	<div id="d2"></div>
+	<div id="d3"></div>
+	<div id="d4"></div>
+	<div id="d5"></div>
+</div>
+<div id="textload" class="white-text"><div>File Parsing In Progress...</div></div>
+{{else}}
+{{nav-bar}}
+{{#each migrateFrom as |module index|}}
+<div style="font color:black">
+  {{#if module.totalChecker}}
+    {{#if module.errorChecker}}
+  {{card-compo completed=module.percent total=module.total parsed=module.parsed name=module.name currentModule=index success=module.success failure=module.failure}}
+    {{else}}
+  {{#link-to "module" module.name target="_blank"}}
+  {{card-compo completed=module.percent total=module.total parsed=module.parsed name=module.name currentModule=index success=module.success failure=module.failure}}
+  {{/link-to}}
+    {{/if}}
+  {{else}}
+  <div>
+    {{card-compo completed=module.percent total=module.total parsed=module.parsed name=module.name currentModule=index success=module.success failure=module.failure}}
+  </div>
+  {{/if}}
+</div>
+{{/each}}
+{{/unless}}
+{{outlet}}

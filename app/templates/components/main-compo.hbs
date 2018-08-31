@@ -1,0 +1,98 @@
+{{#each module as |module|}}
+<div class="container">
+  <div style="min-height:80vh" class="avenir bg-light-gray br3 pa3 ma4 bw2 shadow-5 animated zoomIn">
+ <div class="row">
+<div class="col l5 m5 s12 tc">
+
+   <div class="f4">{{module.name}}</div>
+   <div>{{loader-compo percent=100 index=0 completed=module.parsed total=module.total}}</div>
+ </div>
+<div class="col l7 m7 s12">
+ <table class="striped highlight">
+  <tbody>
+    <tr>
+      <td>Total Records</td>
+      <td class="completed-data">{{module.total}}</td>
+    </tr>
+    <tr>
+      <td>Success</td>
+      <td style="color:#4caf50;font-weight: 900;font-size:1.5em;">{{module.success}}</td>
+    </tr>
+    <tr>
+      <td>Failure</td>
+      <td style="color:#D80027;font-weight: 900;font-size:1.5em;">{{module.failure}}</td>
+    </tr>
+    <tr>
+      <td colspan="2" style="text-align:center;"></td>
+    </tr>
+  </tbody>
+
+</table>
+ </div>
+<div class="col l12 m12 s12">
+ <div class="failures">
+
+
+               <ul id="tabs-swipe-demo" class="tabs">
+
+                   <li id="ErrorView" style="cursor:pointer" {{action "showErrorView"}} class="tab col s3 activate">Error View</li>
+                   <li id="DataView" style="cursor:pointer" {{action "showDataView"}} class="tab col s3 ">Data View</li>
+
+               </ul>
+               <div style="max-height:387px;overflow-y:auto" id="swipe-1" class="col s12 activate">
+                   {{!-- {{#if true}} --}}
+                     <table class="striped hightlight">
+                                 <thead>
+                                     <th>Code</th>
+                                     <th>Message</th>
+                                 </thead>
+                                 <tbody>
+                                   {{#each-in module.errors as |code error|}}
+
+                                   <tr><td>{{code}}</td><td>Message here!</td><td style="color:#D80027">({{error-length error}})</td></tr>
+                                   {{/each-in}}
+
+                                 </tbody>
+                     </table>
+                     {{!-- {{else}}
+                     <div class="ma4 pa3 bw2 tc grow">
+                       {{inline-svg "Success" class="successsvg"}}
+                       <h5> No Errors in this Module! </h5>
+                     </div>
+                     {{/if}} --}}
+
+
+
+               </div>
+               <div  style="max-height:387px;overflow-y:auto" id="swipe-2" class="col s12 hide">
+                 {{!-- {{#if true}} --}}
+                   <table class="striped hightlight">
+                               <thead>
+                                   <th>Key</th>
+                                   <th>Message</th>
+                               </thead>
+                               <tbody>
+                                 {{#each-in module.errors as |code error|}}
+                                 {{#each error as |bug|}}
+
+                                 <tr><td>{{code}}</td><td>{{bug.message}}</td><td {{action 'displayJson' bug.key module.name}}><button style="background-color:dodgerblue" class="btn-small">Edit</button></td></tr>
+                                 {{/each}}
+                                 {{/each-in}}
+
+                               </tbody>
+                   </table>
+                   {{!-- {{else}}
+                   <div class="ma4 pa3 bw2 tc grow">
+                     {{inline-svg "Success" class="successsvg"}}
+                     <h5> No Errors in this Module! </h5>
+                   </div>
+                   {{/if}} --}}
+               </div>
+
+ </div>
+</div>
+</div>
+</div>
+</div>
+{{/each}}
+{{yield}}

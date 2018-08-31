@@ -1,0 +1,42 @@
+<a class="waves-effect waves-light btn modal-trigger" href="#modal4">Modal</a>
+
+  <div style="width:35%" id="modal4" class="modal">
+
+    <div style="padding-bottom:0px!important;" class="modal-content">
+
+     <div id="defTaxContainer" class="container">
+         <p class="f4 pb4">Default Tax Preference</p>
+            <div class="input-field col s12 pb3">
+                <select id="intraTax">
+
+                    <option value="GST0 [0%]">GST0 [0%]</option>
+                    <option value="GST12 [12%]">GST12 [12%]</option>
+                    <option value="GST18 [18%]">GST18 [18%]</option>
+                    <option value="GST28 [28%]">GST28 [28%]</option>
+                    <option value="GST5 [5%]">GST5 [5%]</option>
+
+                </select>
+                <label>Intra State Tax Rate</label>
+            </div>
+
+            <div class="input-field col s12 pb3">
+                <select id="interTax">
+
+                    <option value="IGST0 [0%]">IGST0 [0%]</option>
+                    <option value="IGST12 [12%]">IGST12 [12%]</option>
+                    <option value="IGST18 [18%]">IGST18 [18%]</option>
+                    <option value="IGST28 [28%]">IGST28 [28%]</option>
+                    <option value="IGST5 [5%]">IGST5 [5%]</option>
+
+                </select>
+                <label>Inter State Tax Rate</label>
+            </div>
+
+
+        </div>
+     </div>
+     <div class="modal-footer">
+        <a id="defTaxSubmit" href="" class="modal-close waves-effect waves-green btn-flat">Submit</a>
+    </div>
+   </div>
+{{yield}}
